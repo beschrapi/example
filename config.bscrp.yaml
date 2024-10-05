@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/beschrapi/schema/refs/heads/master/schema.json config.bscrp.yaml
+version: 1
+
+server:
+  port: 8080 # These are the default values
+  host: "0.0.0.0"
+
+# Database is optional, if not provided, the server will not connect to a database
+database:
+  driver: postgres # Currently only postgres is supported
+  host: postgres
+  port: 5432
+  user: postgres
+  password: postgres
+  database: postgres
+
+paths:
+  # Return a JSON object with the version of the API
+  /version:
+    get:
+      json: |
+        {
+          "version": "1.0.0", 
+        }
+
+  # Return from an SQL query
+  /products:
+    get:
+      sql: |
+        SELECT * FROM products
+
+  # Use a POST request to create a new product with SQL
+  /products/create: # Same route for multiple methods aren't supported yet
+    post:
+      sql: |
+        INSERT INTO products (name, price) VALUES ({name}, {price}) RETURNING id
+
+  # Use URL Route parameters to filter the results
+  /products/{id}:
+    get:
+      sql: |
+        SELECT * FROM products WHERE id = {id} 
+
+  # Execute a custom code snippet to return a response
+  /calculate:
+    post:
+      code: ./code/calculate.go
+
+  # Return a file from the server
+  /file:
+    get:
+      file: 
+        path: ./static/beschrapi-logo.png
+
+
+  # Query parameters are not fully supported yet
+  /queryparams:
+    get:
+      params: # This is not supported yet
+        name: string
+        info: string
+      sql: |
+        SELECT {name} AS name, {info} AS info
+
