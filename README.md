@@ -50,6 +50,18 @@ Beschrapi (bəˈʃraːpi), derived from the German word "beschreiben" (meaning "
    - [http://localhost:8080/code](http://localhost:8080/code) (POST)
         - Body: `{"a": 1, "b": 2}`
 
+# IntelliSense
+
+Beschrapi offers IntelliSense support for VSCode.
+
+> [!WARNING]
+> IntelliSense is not fully working correctly yet. But you can still use it to get some help. (It does a pretty good job at the moment)
+
+Just include the following line at the beginning of your YAML file:
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/beschrapi/schema/refs/heads/master/schema.json config.bscrp.yaml
+```
+
 # Configuration
 
 Beschrapi uses a simple YAML configuration file to define the API. 
