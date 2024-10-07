@@ -47,7 +47,7 @@ Beschrapi (bəˈʃraːpi), derived from the German word "beschreiben" (meaning "
 4. You can also try out POST requests using Postman or any other API testing tool.
    - [http://localhost:8080/products/create](http://localhost:8080/products/create) (POST)
         - Body: `{"name": "Product 1", "price": 100}`
-   - [http://localhost:8080/code](http://localhost:8080/code) (POST)
+   - [http://localhost:8080/calculate](http://localhost:8080/calculate) (POST)
         - Body: `{"a": 1, "b": 2}`
 
 # IntelliSense
