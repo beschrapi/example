@@ -73,7 +73,7 @@ The configuration file consists of the following sections:
 - `paths`: API endpoints and their configuration. 
 - `auth`: Defines the authentication to protect routes. (Not yet implemented)
 
-For example look at the [config.bscrp.yml](./config.bscrp.yml) file.
+For example look at the [config.bscrp.yml](./config.bscrp.yaml) file.
 
 # Paths
 
